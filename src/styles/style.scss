@@ -1,0 +1,7 @@
+@import './base/settings';
+
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
+@import './base/base'; //you leave off underscore and extension (because it is a partial) 
+@import './components/header';
+@import './components/taskbody';
+@import './components/parent';

@@ -1,0 +1,81 @@
+/* Style the HTML elements according to the following instructions. 
+DO NOT ALTER THE EXISTING HTML TO DO THIS.  WRITE ONLY CSS!
+
+/* Give the <body> element a background of #bdc3c7*/
+
+
+/* Make the <h1> element #9b59b6*/
+
+
+body{
+	margin: 3% auto;
+	width:80%;
+	max-width: 800px;
+	border: 20px solid grey;
+	padding:2%;
+	font-family: 'Raleway';
+}
+
+
+.text{
+margin-bottom: 20px}
+
+h1{
+font-size: 23px;
+font-weight: 800;
+width: 30%;
+padding-bottom: 20px;
+}
+
+hr{
+	color:#f1f1f1;
+	size: 10px
+}
+
+.quote{
+	border-left: 4px grey solid;
+	padding-left: 1%;
+}
+.date{
+	text-transform: uppercase;
+	color: coral;
+}
+	/*p{
+		background: yellow;
+		font-family: "Abril Fatface";
+		font-weight: bold;
+		width:50%;
+	height:20%;
+	padding-left:10px;
+	margin:  auto 0 auto;
+	}*/
+
+table{
+	margin: auto;
+}
+
+td{
+	width:100px;
+	height:100px;
+}
+
+.vertical{
+	border-left: 1px black solid;
+	border-right: 1px black solid;
+
+}
+
+.horizontal{
+	border-top: 1px black solid;
+	border-bottom: 1px black solid;
+
+}
+
+
+
+
+img {
+	width: 30%;
+	float:left;
+	margin: 1.66%;
+height: 300px;}

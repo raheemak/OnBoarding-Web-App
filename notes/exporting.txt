@@ -1,0 +1,21 @@
+
+/*exporting default 
+
+export {square, add, subtract as default}
+or
+export default ()=>{functionbody}
+
+
+however, when exporting class you cam just add 'export default' before class definition! 
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+when importing default: 
+import whateveryouwanttocallimport from filename : grabs default function which you can reference through whateveryouwanttocallimport
+
+
+when importing node modules, you can just say 
+import name from "modulename" : because you did not specify a path, node will look for a module with this name 
+
+
+when importing components, you don't need to add .js to the end of the file
+*/

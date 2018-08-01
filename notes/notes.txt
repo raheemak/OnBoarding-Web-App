@@ -1,0 +1,92 @@
+/*
+//loader lets you customize behaviour of webpack 
+//we will want to tranform js files with babel 
+//install babel-core@6.25.0: lets you run babel from tools like webpack wheras babel-cli lets you run throguh command line 
+//install babel-loader is a webpack plugin which will show webpack how to use babel 
+
+//you also need to install: react,react-dom 
+//first need to install webpack
+
+//module is used to st up rules (array of objects with rules)
+//for babel, you create a babel.rc file with the information listed below
+{
+    "presets": ["env", "react", "stage-3"]
+}
+
+
+sourcemap allows for error checking 
+
+devtool: options can be foudn on webpack.js.og (differnt from development and production)
+
+webpack dev server: 
+options can also be foudn on webpack documentation 
+must first be installed through npm : npm add webpack-dev-server@2.5.1
+
+allows us to serve our webpage on local server.... but does not physically change bundle file ! 
+
+these scrips are added to package.json
+scripts: {
+    "dev-server": "webpack-dev-server"
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+this babel plugin allows you to format classes differently 
+npm add babel-plugin-transform-class-properties@6.24.1
+
+
+what does this let you do??
+- create functions that does not have binding messed up
+
+class OldSyntax extends React.Component {
+    constructor(){
+        this.name="Raheema"
+    }
+
+    const oldSyntax = new oldSyntax();
+
+    greeting(){
+        return "hey $this.name"
+    }
+}
+
+
+class NewSyntax {
+    name= "Raheema";
+    greeting =() =>{
+        return "hey $this.name"
+    }
+}//you do not need constructor...
+
+const NewSyntax = new NewSyntax();
+
+- because functions can be delared as arrow functions who have access to the "this" of where they were created, functions this binding will not break because it will always have access 
+to the classes properties
+
+
+tldr: class properties don't need functions to be bound manually and eliminate the need for constructors 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+you can also use webpack to style 
+
+pacakages: 
+
+style-loader; will inject css into dom 
+
+ npm add style-loader@0.18.2 css-loader@0.28.4 :: set up in webpack 
+
+
+
+ to use scss: 
+ npm add sass-loader node-sass
+
+ //normalize css allows you to normalize the browser before uploading your own code 
+//npm add normalize.css 
+make sure you import in app.js
+*/
+
+/*
+//you can pass jsx to components... 
+{ through props.children }
+as can be seen above in this file ... hm
+*/
