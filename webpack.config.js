@@ -22,7 +22,13 @@ module.exports= {
                 'css-loader',
                 'sass-loader'
             ]//use this instead of loader because use allows you to declare array of loaders
-        }]
+        },{
+            test: /\.xml$/,
+            use: [
+                'xml-loader'
+            ]
+        }
+        ]
     },
     devtool: 'cheap-module-eval-source=map',
     devServer: {

@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import Tasks from './components/Tasks'
 import Header from './components/Header'
-import OptionModal from './components/OptionModal'
 
 import './styles/style.scss'
 class TaskApp extends React.Component { 
@@ -20,9 +19,6 @@ class TaskApp extends React.Component {
             <div class="parent">
             <Header title={title}  subtitle={subtitle}/>
             <Tasks />
-            <OptionModal
-                selected= {this.state.selected}
-            />
             </div>
         )
     }

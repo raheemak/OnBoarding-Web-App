@@ -13,14 +13,19 @@ export default class Task extends React.Component {
     }
 
     render (){
-        console.log ("this is being called...")
         return (
-            <div> <Checkbox disabled={!this.props.enabled}  
+            <div>
+                <div class="checkbox">
+                    <Checkbox disabled={!this.props.enabled}  
                              onChange={this.checkboxHandler} 
                              checked={this.props.checked}
-                    /> 
+                  />
+                <div class="checkbox-text">
                     {this.props.id}  
-                    <Info id={this.props.id} disabled={!this.props.enabled}/>
+                </div>
+             </div>
+            
+                <Info id={this.props.id} disabled={!this.props.enabled}/>
             </div>
         )
     }
