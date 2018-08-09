@@ -52,17 +52,10 @@ class Info extends React.PureComponent {
             <Card>
             <CardContent>
               <Typography  color="textSecondary">
-                Word of the Day
-              </Typography>
-              <Typography variant="headline" component="h2">
-               err
-              </Typography>
-              <Typography color="textSecondary">
-                adjective
+              {this.props.title}
               </Typography>
               <Typography component="p">
-                well meaning and kindly.<br />
-                {'"a benevolent smile"'}
+                {this.props.information}<br />
               </Typography>
             </CardContent>
             <CardActions>
