@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tasks>
+   <task>
+      <title>title for main task</title>
+      <information>
+         <subtask>
+            <steps>
+               <step>
+                  <title />
+                  <info />
+               </step>
+            </steps>
+         </subtask>
+      </information>
+   </task>
+</Tasks>
