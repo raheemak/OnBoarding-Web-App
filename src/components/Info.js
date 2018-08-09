@@ -8,17 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 
 
-const styles = {
-  smallButton: {
-    background: 'linear-gradient(45deg, #F0AF5D 30%, #F38E4A 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 30,
-    padding: '0 30px',
-    margin: '10px'
-  },
-};
 
 
 class Info extends React.PureComponent {
@@ -41,10 +30,18 @@ class Info extends React.PureComponent {
       }));
     }
     
+  
+
     render() {
+      const formatxml = (str) =>{
+        return str.split("\n").map((arg)=>(
+          arg.trim()
+        )).join ("\n")
+      }
+      
       return (
         <div>          
-          <Button color="secondary" onClick={this.toggleWindowPortal} disabled={this.props.disabled} className={this.props.classes.smallButton}> 
+          <Button color="secondary" onClick={this.toggleWindowPortal} disabled={this.props.disabled} > 
             Details
           </Button>
           
@@ -54,8 +51,43 @@ class Info extends React.PureComponent {
               <Typography  color="textSecondary">
               {this.props.title}
               </Typography>
-              <Typography component="p">
-                {this.props.information}<br />
+              <Typography component="p">{
+                this.props.information && (
+                  this.props.information.subtask ? 
+                    (                   
+                      <div>
+                        <em>{this.props.information["_"] && this.props.information["_"]} </em>
+                         {this.props.information.subtask.map (
+                          (el)=>(
+                            <div>
+                              <em>{el.task}</em>
+                              {
+                                el.instructions && (
+                                  el.instructions[0].steps ? (
+                                    el.instructions[0].steps[0].step.map ((step)=>(
+                                      <div>
+                                          <h4>{step.title}</h4>
+                                          {step.info &&  <div class="pre"> {(formatxml(step.info.toString()))} </div>}
+                                      </div>
+                                    ))
+                                  ): (
+                                    <p> <div class="pre">{formatxml(el.instructions.toString())} </div> </p>
+                                  )
+                                )
+                              }
+                            </div>
+                          )
+                        )
+                    }</div>):
+                  (
+                   <em>{this.props.information}</em>
+                  )
+                )
+              }
+
+               
+
+                <br />
               </Typography>
             </CardContent>
             <CardActions>
@@ -68,4 +100,4 @@ class Info extends React.PureComponent {
     }
   }
 
-export default withStyles(styles)(Info);
+export default Info;

@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import 'normalize.css/normalize.css';
 import Tasks from './components/Tasks'
 import Header from './components/Header'
-
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import theme from "./Theme";
 import './styles/style.scss'
 class TaskApp extends React.Component { 
 
@@ -17,8 +18,11 @@ class TaskApp extends React.Component {
         
         return (
             <div class="parent">
-            <Header title={title}  subtitle={subtitle}/>
-            <Tasks />
+            <MuiThemeProvider theme={theme}>
+                <Header title={title}  subtitle={subtitle}/>
+                 <Tasks />
+            </MuiThemeProvider>
+   
             </div>
         )
     }

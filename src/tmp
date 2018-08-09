@@ -1,0 +1,18 @@
+(
+                    this.props.information.steps ? (this.props.information.map ((el)=> (
+                      <div>
+                        <em>{el.task}</em>
+                        <p>
+                          { (el.instructions) && (el.instructions[0].steps ?  
+                          el.instructions[0].steps[0].step.map ((step)=>(
+                            <div>
+                                <h4>{step.title}</h4>
+                                {step.info &&  <div class="pre"> {(formatxml(step.info.toString()))} </div>}
+                            </div>
+                          )): <div class="pre">{formatxml(el.instructions[0].toString())} </div>)
+                          } 
+                        </p>
+              
+                        </div> ))) : "gu"
+                    
+                ): "what"
