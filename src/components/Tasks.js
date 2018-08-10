@@ -36,7 +36,7 @@ export default class Tasks extends React.Component {
                                         <Box id={index} checked={this.checked(index)} enabled={this.enabled(index)} handler={this.checkboxHandler}  />
                                         <div class="row">
                                             <Task id={task.title} className="textbox-text"/>
-                                            <Info title={task.title} information={(task.information[0])} disabled={false}/>
+                                            <Info open={this.checked(index) }title={task.title} information={task.information[0]} enabled={this.enabled(index)}/>
                                             
                                         </div>
                                     </div>

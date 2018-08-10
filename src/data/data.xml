@@ -4,7 +4,7 @@
       <title>title for main task</title>
       <information>
          <subtask>
-            <steps>
+            <steps>this will open a mini card within the card for specific task 
                <step>
                   <title />
                   <info />

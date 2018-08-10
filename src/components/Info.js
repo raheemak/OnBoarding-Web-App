@@ -5,14 +5,15 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import MiniCard from './MiniCard';
+
 
 
 
 
 class Info extends React.PureComponent {
    state = {
-    showWindowPortal: false,
+    showWindowPortal: this.props.open,
    }
 
     componentDidMount() {
@@ -34,17 +35,17 @@ class Info extends React.PureComponent {
 
     render() {
       const formatxml = (str) =>{
-        return str.split("\n").map((arg)=>(
+        return str.replace(/^\s+|\s+$/g, '').split("\n").map((arg)=>(
           arg.trim()
         )).join ("\n")
       }
       
       return (
         <div>          
-          <Button color="secondary" onClick={this.toggleWindowPortal} disabled={this.props.disabled} > 
+          <Button color="secondary" onClick={this.toggleWindowPortal} disabled={!this.props.enabled} > 
             Details
           </Button>
-          
+
           {this.state.showWindowPortal && (
             <Card>
             <CardContent>
@@ -55,32 +56,28 @@ class Info extends React.PureComponent {
                 this.props.information && (
                   this.props.information.subtask ? 
                     (                   
-                      <div>
-                        <em>{this.props.information["_"] && this.props.information["_"]} </em>
+                      <div><ul class= "list">
+                        <em>{this.props.information["_"] && <div class="pre">{formatxml(this.props.information["_"])}</div>} </em>
                          {this.props.information.subtask.map (
                           (el)=>(
                             <div>
-                              <em>{el.task}</em>
+                              <li><b>{el.task}</b>
                               {
-                                el.instructions && (
+                               
+                                  el.instructions && (
                                   el.instructions[0].steps ? (
-                                    el.instructions[0].steps[0].step.map ((step)=>(
-                                      <div>
-                                          <h4>{step.title}</h4>
-                                          {step.info &&  <div class="pre"> {(formatxml(step.info.toString()))} </div>}
-                                      </div>
-                                    ))
-                                  ): (
+                                    <MiniCard steps={el.instructions[0].steps[0].step} />
+                                    ): (
                                     <p> <div class="pre">{formatxml(el.instructions.toString())} </div> </p>
                                   )
-                                )
+                                ) 
                               }
-                            </div>
+                           </li> </div>
                           )
                         )
-                    }</div>):
+                    }</ul></div>):
                   (
-                   <em>{this.props.information}</em>
+                   <em><div class="pre">{formatxml(this.props.information.toString())}</div></em>
                   )
                 )
               }
